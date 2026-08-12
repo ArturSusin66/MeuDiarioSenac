@@ -1,0 +1,12 @@
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.AssemblyInfoInputs.cache
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.AssemblyInfo.cs
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.csproj.CoreCompileInputs.cache
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\bin\Debug\net9.0\DiarioApp.Data.deps.json
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\bin\Debug\net9.0\DiarioApp.Data.dll
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\bin\Debug\net9.0\DiarioApp.Data.pdb
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.csproj.AssemblyReference.cache
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.dll
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\refint\DiarioApp.Data.dll
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.pdb
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\ref\DiarioApp.Data.dll

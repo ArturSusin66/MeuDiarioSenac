@@ -28,7 +28,7 @@ public class RepositorioDiario
         }
     }
 
-    public void BuscarPorId(int id)
+    public Registro? BuscarPorId(int id)
     {
         var registro = _context.Registros.Find(id);
         if (registro != null)
@@ -43,6 +43,50 @@ public class RepositorioDiario
         else
         {
             Console.WriteLine($"\nRegistro com ID {id} não encontrado.");
+        }
+
+        return registro;
+    }
+
+    public bool Atualizar(int id, string novoTitulo, string novoConteudo)
+    {
+        var registro = _context.Registros.Find(id);
+        if (registro == null)
+        {
+            Console.WriteLine($"\nRegistro com ID {id} não encontrado para alteração.");
+            return false;
+        }
+
+        registro.Titulo = novoTitulo;
+        registro.Conteudo = novoConteudo;
+        _context.SaveChanges();
+
+        Console.WriteLine("\nRegistro atualizado com sucesso!");
+        return true;
+    }
+
+    public bool Remover(int id)
+    {
+        var registro = _context.Registros.Find(id);
+        if (registro == null)
+        {
+            Console.WriteLine($"\nRegistro com ID {id} não encontrado para exclusão.");
+            return false;
+        }
+
+        _context.Registros.Remove(registro);
+        _context.SaveChanges();
+
+        Console.WriteLine("\nRegistro excluído com sucesso!");
+        return true;
+    }
+
+    public void GarantirUsuarioPadrao()
+    {
+        if (!_context.Usuarios.Any(u => u.Id == 1))
+        {
+            _context.Usuarios.Add(new Usuario { Id = 1, Nome = "Usuário Padrão" });
+            _context.SaveChanges();
         }
     }
 }

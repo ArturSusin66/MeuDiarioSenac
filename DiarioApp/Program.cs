@@ -2,59 +2,83 @@
 
 RepositorioDiario repositorio = new RepositorioDiario();
 
+try
+{
+    repositorio.GarantirUsuarioPadrao();
+}
+catch
+{
+}
+
 while (true)
 {
     Console.Clear();
 
-    Console.WriteLine("DIÁRIO SENAC");
-    Console.WriteLine("1 - Novo Registro");
-    Console.WriteLine("2 - Listar Registros");
-    Console.WriteLine("3 - Buscar Registro por ID");
+    
+    Console.WriteLine("        DIÁRIO SENAC APP           ");
+    
+    Console.WriteLine("1 - Novo Registro ");
+    Console.WriteLine("2 - Listar Registros ");
+    Console.WriteLine("3 - Buscar Registro por ID ");
+    Console.WriteLine("4 - Atualizar Registro ");
+    Console.WriteLine("5 - Excluir Registro");
     Console.WriteLine("0 - Sair");
-    Console.Write("\nEscolha uma opção: ");
+   
+    Console.Write("Escolha uma opção: ");
 
     string? opcao = Console.ReadLine();
 
     switch (opcao)
     {
         case "1":
-
             Registro novoRegistro = new Registro();
 
-            Console.Write("Título: ");
+            Console.Write("\nTítulo: ");
             novoRegistro.Titulo = Console.ReadLine();
 
             Console.Write("Conteúdo: ");
             novoRegistro.Conteudo = Console.ReadLine();
 
-            Console.Write("ID do Usuário: ");
-            if (int.TryParse(Console.ReadLine(), out int usuarioId))
-            {
-                novoRegistro.UsuarioId = usuarioId;
-            }
-            else
-            {
-                novoRegistro.UsuarioId = 1;
-            }
+            Console.Write("ID do Usuário (padrão 1): ");
+            string? entradaUsuarioId = Console.ReadLine();
+            novoRegistro.UsuarioId = int.TryParse(entradaUsuarioId, out int usuarioId) ? usuarioId : 1;
 
             novoRegistro.DataRegistro = DateTime.Now;
 
-            repositorio.Inserir(novoRegistro);
-
-            Console.WriteLine("\nRegistro salvo com sucesso!");
+            try
+            {
+                repositorio.Inserir(novoRegistro);
+                Console.WriteLine("\nRegistro salvo com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"\nErro ao persistir: {ex.Message}");
+            }
             break;
 
         case "2":
-
-            repositorio.ListarTodos();
+            try
+            {
+                repositorio.ListarTodos();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"\nErro ao listar registros: {ex.Message}");
+            }
             break;
 
         case "3":
-
-            Console.Write("Digite o ID: ");
-            if (int.TryParse(Console.ReadLine(), out int id))
+            Console.Write("\nDigite o ID: ");
+            if (int.TryParse(Console.ReadLine(), out int idBusca))
             {
-                repositorio.BuscarPorId(id);
+                try
+                {
+                    repositorio.BuscarPorId(idBusca);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"\nErro na busca: {ex.Message}");
+                }
             }
             else
             {
@@ -62,11 +86,66 @@ while (true)
             }
             break;
 
+        case "4":
+            Console.Write("\nDigite o ID do registro a ser atualizado: ");
+            if (int.TryParse(Console.ReadLine(), out int idAtualizar))
+            {
+                Console.Write("Novo Título: ");
+                string? novoTitulo = Console.ReadLine();
+
+                Console.Write("Novo Conteúdo: ");
+                string? novoConteudo = Console.ReadLine();
+
+                try
+                {
+                    repositorio.Atualizar(idAtualizar, novoTitulo ?? string.Empty, novoConteudo ?? string.Empty);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"\nErro ao atualizar: {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("ID inválido.");
+            }
+            break;
+
+        case "5":
+            Console.Write("\nDigite o ID do registro a ser excluído: ");
+            if (int.TryParse(Console.ReadLine(), out int idExcluir))
+            {
+                Console.Write($"Confirma a exclusão do registro #{idExcluir}? (s/n): ");
+                string? confirmacao = Console.ReadLine();
+
+                if (confirmacao?.ToLower() == "s")
+                {
+                    try
+                    {
+                        repositorio.Remover(idExcluir);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"\nErro ao excluir: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Exclusão cancelada.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("ID inválido.");
+            }
+            break;
+
         case "0":
+            Console.WriteLine("\nEncerrando a aplicação...");
             return;
 
         default:
-            Console.WriteLine("Opção inválida.");
+            Console.WriteLine("\nOpção inválida.");
             break;
     }
 

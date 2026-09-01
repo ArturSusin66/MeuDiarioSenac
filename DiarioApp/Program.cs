@@ -1,4 +1,4 @@
-﻿using DiarioSenac;
+﻿﻿using DiarioSenac;
 
 RepositorioDiario repositorio = new RepositorioDiario();
 
@@ -13,7 +13,7 @@ while (true)
     Console.WriteLine("0 - Sair");
     Console.Write("\nEscolha uma opção: ");
 
-    string opcao = Console.ReadLine();
+    string? opcao = Console.ReadLine();
 
     switch (opcao)
     {
@@ -26,6 +26,16 @@ while (true)
 
             Console.Write("Conteúdo: ");
             novoRegistro.Conteudo = Console.ReadLine();
+
+            Console.Write("ID do Usuário: ");
+            if (int.TryParse(Console.ReadLine(), out int usuarioId))
+            {
+                novoRegistro.UsuarioId = usuarioId;
+            }
+            else
+            {
+                novoRegistro.UsuarioId = 1;
+            }
 
             novoRegistro.DataRegistro = DateTime.Now;
 
@@ -42,9 +52,14 @@ while (true)
         case "3":
 
             Console.Write("Digite o ID: ");
-            int id = Convert.ToInt32(Console.ReadLine());
-
-            repositorio.BuscarPorId(id);
+            if (int.TryParse(Console.ReadLine(), out int id))
+            {
+                repositorio.BuscarPorId(id);
+            }
+            else
+            {
+                Console.WriteLine("ID inválido. Digite um número inteiro.");
+            }
             break;
 
         case "0":

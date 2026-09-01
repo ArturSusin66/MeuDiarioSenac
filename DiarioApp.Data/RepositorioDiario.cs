@@ -1,69 +1,48 @@
-using MySql.Data.MySqlClient;
+namespace DiarioSenac;
 
-namespace DiarioSenac
+public class RepositorioDiario
 {
-    public class RepositorioDiario
+    private readonly MeuDiarioSenacContext _context = new MeuDiarioSenacContext();
+
+    public void Inserir(Registro registro)
     {
-        public void Inserir(Registro registro)
+        _context.Registros.Add(registro);
+        _context.SaveChanges();
+    }
+
+    public void ListarTodos()
+    {
+        var registros = _context.Registros.ToList();
+        if (registros.Count == 0)
         {
-            using var conexao = MeuDiarioSenacContext.ObterConexao();
-            conexao.Open();
-
-            string sql = "INSERT INTO registros (titulo, conteudo, data_registro) VALUES (@titulo, @conteudo, @data)";
-
-            using var comando = new MySqlCommand(sql, conexao);
-            comando.Parameters.AddWithValue("@titulo", registro.Titulo);
-            comando.Parameters.AddWithValue("@conteudo", registro.Conteudo);
-            comando.Parameters.AddWithValue("@data", registro.DataRegistro);
-
-            comando.ExecuteNonQuery();
+            Console.WriteLine("\nNenhum registro encontrado.");
+            return;
         }
 
-        public void ListarTodos()
+        Console.WriteLine("\n--- Lista de Registros ---");
+        foreach (var registro in registros)
         {
-            using var conexao = MeuDiarioSenacContext.ObterConexao();
-            conexao.Open();
-
-            string sql = "SELECT id, titulo, conteudo, data_registro FROM registros ORDER BY data_registro DESC";
-
-            using var comando = new MySqlCommand(sql, conexao);
-            using var leitor = comando.ExecuteReader();
-
-            Console.WriteLine("\n--- Registros ---");
-            while (leitor.Read())
-            {
-                Console.WriteLine($"ID: {leitor.GetInt32("id")}");
-                Console.WriteLine($"Título: {leitor.GetString("titulo")}");
-                Console.WriteLine($"Conteúdo: {leitor.GetString("conteudo")}");
-                Console.WriteLine($"Data: {leitor.GetDateTime("data_registro")}");
-              
-            }
+            Console.WriteLine($"ID: {registro.Id} | Título: {registro.Titulo} | Data: {registro.DataRegistro:dd/MM/yyyy HH:mm}");
+            Console.WriteLine($"Conteúdo: {registro.Conteudo}");
+            Console.WriteLine(new string('-', 30));
         }
+    }
 
-        public void BuscarPorId(int id)
+    public void BuscarPorId(int id)
+    {
+        var registro = _context.Registros.Find(id);
+        if (registro != null)
         {
-            using var conexao = MeuDiarioSenacContext.ObterConexao();
-            conexao.Open();
-
-            string sql = "SELECT id, titulo, conteudo, data_registro FROM registros WHERE id = @id";
-
-            using var comando = new MySqlCommand(sql, conexao);
-            comando.Parameters.AddWithValue("@id", id);
-
-            using var leitor = comando.ExecuteReader();
-
-            if (leitor.Read())
-            {
-                Console.WriteLine("\n--- Registro Encontrado ---");
-                Console.WriteLine($"ID: {leitor.GetInt32("id")}");
-                Console.WriteLine($"Título: {leitor.GetString("titulo")}");
-                Console.WriteLine($"Conteúdo: {leitor.GetString("conteudo")}");
-                Console.WriteLine($"Data: {leitor.GetDateTime("data_registro")}");
-            }
-            else
-            {
-                Console.WriteLine("\nNenhum registro encontrado com esse ID.");
-            }
+            Console.WriteLine("\n--- Registro Encontrado ---");
+            Console.WriteLine($"ID: {registro.Id}");
+            Console.WriteLine($"Título: {registro.Titulo}");
+            Console.WriteLine($"Data: {registro.DataRegistro:dd/MM/yyyy HH:mm}");
+            Console.WriteLine($"Conteúdo: {registro.Conteudo}");
+            Console.WriteLine($"Usuário ID: {registro.UsuarioId}");
+        }
+        else
+        {
+            Console.WriteLine($"\nRegistro com ID {id} não encontrado.");
         }
     }
 }

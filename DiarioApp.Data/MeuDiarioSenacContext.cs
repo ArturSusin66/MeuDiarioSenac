@@ -1,21 +1,37 @@
-using MySql.Data.MySqlClient;
+using DiarioSenac;
+using Microsoft.EntityFrameworkCore;
 
-namespace DiarioSenac
+public class MeuDiarioSenacContext : DbContext
 {
-    public class MeuDiarioSenacContext
+    public MeuDiarioSenacContext()
     {
-        private const string Servidor = "localhost";
-        private const string Porta = "3306";
-        private const string Banco = "diario_senac";
-        private const string Usuario = "root";
-        private const string Senha = "1234";
+    }
 
-        private static string ConnectionString =>
-            $"Server={Servidor};Port={Porta};Database={Banco};Uid={Usuario};Pwd={Senha};";
+    public MeuDiarioSenacContext(
+        DbContextOptions<MeuDiarioSenacContext> options)
+        : base(options)
+    {
+    }
 
-        public static MySqlConnection ObterConexao()
+    public DbSet<Registro> Registros { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
+
+    private readonly string connectionString = "Server=localhost;Database=diario_senac;User=root;Password=1234;";
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
         {
-            return new MySqlConnection(ConnectionString);
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 36));
+            optionsBuilder.UseMySql(connectionString, serverVersion);
         }
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Usuario>()
+            .HasMany(u => u.Registros)
+            .WithOne(r => r.Usuario)
+            .HasForeignKey(r => r.UsuarioId);
     }
 }

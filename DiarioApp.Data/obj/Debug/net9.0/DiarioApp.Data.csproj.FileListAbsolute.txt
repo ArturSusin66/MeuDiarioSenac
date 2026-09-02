@@ -13,3 +13,6 @@ C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0
 C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\bin\Debug\net9.0\DiarioApp.Data.runtimeconfig.json
 C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.sourcelink.json
 C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioApp.Data.genruntimeconfig.cache
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\bin\Debug\net9.0\DiarioApp.Model.dll
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\bin\Debug\net9.0\DiarioApp.Model.pdb
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp.Data\obj\Debug\net9.0\DiarioAp.4098911A.Up2Date

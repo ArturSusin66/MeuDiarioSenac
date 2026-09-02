@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nYVU2lWNOqo=",
+  "dgSpecHash": "/5KVIWI6KJs=",
   "success": true,
-  "projectFilePath": "C:\\workplace\\Desenvolvedor_Web\\BackEnd\\DiarioApp\\DiarioApp\\DiarioApp.csproj",
+  "projectFilePath": "c:\\workplace\\Desenvolvedor_Web\\BackEnd\\DiarioApp\\DiarioApp\\DiarioApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Prog_Sis\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\Prog_Sis\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",

@@ -1,4 +1,4 @@
-namespace DiarioSenac;
+namespace DiarioApp.Model.Models;
 
 public class Usuario
 {

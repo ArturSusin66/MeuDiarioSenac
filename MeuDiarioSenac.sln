@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioApp", "DiarioApp\Diar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiarioApp.Model", "DiarioApp.Model\DiarioApp.Model.csproj", "{C42AD984-D544-438C-B7A2-019AC6B3A80B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDiarioSenac.Business", "MeuDiarioSenac.Business\MeuDiarioSenac.Business.csproj", "{4BE8433F-91C5-4856-BEB3-5934BB29A859}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{C42AD984-D544-438C-B7A2-019AC6B3A80B}.Release|x64.Build.0 = Release|Any CPU
 		{C42AD984-D544-438C-B7A2-019AC6B3A80B}.Release|x86.ActiveCfg = Release|Any CPU
 		{C42AD984-D544-438C-B7A2-019AC6B3A80B}.Release|x86.Build.0 = Release|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Debug|x64.Build.0 = Debug|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Debug|x86.Build.0 = Debug|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Release|x64.ActiveCfg = Release|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Release|x64.Build.0 = Release|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Release|x86.ActiveCfg = Release|Any CPU
+		{4BE8433F-91C5-4856-BEB3-5934BB29A859}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

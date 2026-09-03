@@ -136,3 +136,5 @@ C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp\bin\Debug\net9.0\runt
 C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
 C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp\bin\Debug\net9.0\DiarioApp.Model.dll
 C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp\bin\Debug\net9.0\DiarioApp.Model.pdb
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp\bin\Debug\net9.0\MeuDiarioSenac.Business.dll
+C:\workplace\Desenvolvedor_Web\BackEnd\DiarioApp\DiarioApp\bin\Debug\net9.0\MeuDiarioSenac.Business.pdb

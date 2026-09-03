@@ -1,5 +1,6 @@
 using DiarioSenac;
 using Microsoft.EntityFrameworkCore;
+using DiarioApp.Model.Models;
 
 public class MeuDiarioSenacContext : DbContext
 {

@@ -1,6 +1,12 @@
-﻿﻿using DiarioSenac;
+﻿using DiarioSenac;
+using DiarioApp.Model.Models;
+using MeudiarioSenac.Business;
+
+RegistroBusiness business = new RegistroBusiness();
+
 
 RepositorioDiario repositorio = new RepositorioDiario();
+
 
 try
 {
@@ -14,16 +20,16 @@ while (true)
 {
     Console.Clear();
 
-    
+
     Console.WriteLine("        DIÁRIO SENAC APP           ");
-    
+
     Console.WriteLine("1 - Novo Registro ");
     Console.WriteLine("2 - Listar Registros ");
     Console.WriteLine("3 - Buscar Registro por ID ");
     Console.WriteLine("4 - Atualizar Registro ");
     Console.WriteLine("5 - Excluir Registro");
     Console.WriteLine("0 - Sair");
-   
+
     Console.Write("Escolha uma opção: ");
 
     string? opcao = Console.ReadLine();
@@ -47,8 +53,17 @@ while (true)
 
             try
             {
+                business.ValidarTituloObrigatorio(novoRegistro.Titulo);
+                business.ValidarTituloMaximo(novoRegistro.Titulo);
+                business.ValidarData(novoRegistro.DataRegistro);
+                business.ValidarConteudo(novoRegistro.Conteudo);
+
                 repositorio.Inserir(novoRegistro);
                 Console.WriteLine("\nRegistro salvo com sucesso!");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"\nValidação: {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -98,7 +113,15 @@ while (true)
 
                 try
                 {
+                    business.ValidarTituloObrigatorio(novoTitulo);
+                    business.ValidarTituloMaximo(novoTitulo);
+                    business.ValidarConteudo(novoConteudo);
+
                     repositorio.Atualizar(idAtualizar, novoTitulo ?? string.Empty, novoConteudo ?? string.Empty);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"\nValidação: {ex.Message}");
                 }
                 catch (Exception ex)
                 {

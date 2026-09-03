@@ -15,5 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DiarioApp.Data\DiarioApp.Data.csproj" />
     <ProjectReference Include="..\DiarioApp.Model\DiarioApp.Model.csproj" />
+    <ProjectReference Include="..\MeudiarioSenac.Business\MeudiarioSenac.Business.csproj" />
   </ItemGroup>
 </Project>

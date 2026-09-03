@@ -1,5 +1,5 @@
-namespace DiarioSenac
-{
+namespace DiarioApp.Model.Models;
+
     public class Registro
     {
         public int Id { get; set; }
@@ -9,4 +9,3 @@ namespace DiarioSenac
         public int UsuarioId { get; set; }
         public Usuario? Usuario { get; set; }
     }
-}

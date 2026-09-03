@@ -1,4 +1,5 @@
 namespace DiarioSenac;
+using DiarioApp.Model.Models;
 
 public class RepositorioDiario
 {

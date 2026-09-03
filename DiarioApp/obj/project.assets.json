@@ -1336,6 +1336,20 @@
         "runtime": {
           "bin/placeholder/DiarioApp.Model.dll": {}
         }
+      },
+      "MeuDiarioSenac.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "DiarioApp.Data": "1.0.0",
+          "DiarioApp.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MeuDiarioSenac.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MeuDiarioSenac.Business.dll": {}
+        }
       }
     }
   },
@@ -4184,12 +4198,18 @@
       "type": "project",
       "path": "../DiarioApp.Model/DiarioApp.Model.csproj",
       "msbuildProject": "../DiarioApp.Model/DiarioApp.Model.csproj"
+    },
+    "MeuDiarioSenac.Business/1.0.0": {
+      "type": "project",
+      "path": "../MeuDiarioSenac.Business/MeuDiarioSenac.Business.csproj",
+      "msbuildProject": "../MeuDiarioSenac.Business/MeuDiarioSenac.Business.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "DiarioApp.Data >= 1.0.0",
       "DiarioApp.Model >= 1.0.0",
+      "MeuDiarioSenac.Business >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0",
       "Pomelo.EntityFrameworkCore.MySql >= 9.0.0"
     ]
@@ -4224,6 +4244,9 @@
             },
             "C:\\workplace\\Desenvolvedor_Web\\BackEnd\\DiarioApp\\DiarioApp.Model\\DiarioApp.Model.csproj": {
               "projectPath": "C:\\workplace\\Desenvolvedor_Web\\BackEnd\\DiarioApp\\DiarioApp.Model\\DiarioApp.Model.csproj"
+            },
+            "C:\\workplace\\Desenvolvedor_Web\\BackEnd\\DiarioApp\\MeuDiarioSenac.Business\\MeuDiarioSenac.Business.csproj": {
+              "projectPath": "C:\\workplace\\Desenvolvedor_Web\\BackEnd\\DiarioApp\\MeuDiarioSenac.Business\\MeuDiarioSenac.Business.csproj"
             }
           }
         }

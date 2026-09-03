@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiarioApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56520cd820871d8a0b6fb91f929492ee9aa71bb3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1964ed5b559d389cd2fa8a968145c035de871cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiarioApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiarioApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
